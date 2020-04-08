@@ -1,0 +1,108 @@
+svg {
+  height: 1000px;
+  width: 100%;
+  display: block;
+}
+.svg-action:hover {
+  cursor: pointer;
+}
+
+.grid {
+  background: url("/assets/action/grid.gif");
+}
+
+.action-text {
+  fill: black;
+  font-size: 12px;
+  font-weight: bold;
+  text-anchor: middle;
+}
+/* storage */
+
+.action-storage {
+  fill: url("#storage");
+  stroke: #333;
+  stroke-width: 0.75;
+  align-content: center;
+}
+
+.action-storage:hover {
+  fill: url("#storage");
+  cursor: move;
+  stroke: green;
+  stroke-width: 2;
+}
+
+/** bigtable **/
+
+.action-bigtable:hover {
+  fill: url("#bigtable");
+  cursor: move;
+  stroke: green;
+  stroke-width: 2;
+}
+
+.action-bigtable {
+  fill: url("#bigtable");
+  stroke: #333;
+  stroke-width: 0.75;
+  align-content: center;
+}
+
+.circle-select {
+  stroke: #2f8071;
+  stroke-width: 1;
+  stroke-dasharray: 8 2;
+  animation: dash 20s linear alternate infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+.arrow {
+  fill: #a8a6a6;
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.arrow:hover {
+  fill: #000000;
+  cursor: pointer;
+}
+.linkEdge{
+  fill:none;
+  stroke:#8d8b8b;
+  stroke-width:2;
+}
+
+.linkEdge:hover {
+  cursor: pointer;
+  stroke: #070707;
+}
+
+.linkEdgeArrow {
+  fill:#8d8b8b;
+}
+
+.linkEdgeArrow:hover {
+  cursor: pointer;
+  fill: #070707;
+}
+
+.linkEdge-select {
+  stroke: green;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1 20;
+  animation: dash 20s linear alternate infinite;
+}

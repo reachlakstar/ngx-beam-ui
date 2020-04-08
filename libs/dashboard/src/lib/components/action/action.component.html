@@ -1,0 +1,27 @@
+<nb-card>
+  <nb-card-header>
+    Components
+  </nb-card-header>
+  <nb-card-body>
+    <nb-card *ngFor="let action of actions">
+      <nb-card-header>
+        {{action.title}}
+      </nb-card-header>
+      <nb-list>
+        <nb-list-item *ngFor="let ctrl of action.item">
+          <div (click)="onClick(ctrl)" draggable="true" style="cursor: pointer;">
+            <nb-user size="medium"
+                     [name]="ctrl.name"
+                     [title]="ctrl.title"
+                     [badgeText]="isEncrypted(ctrl)"
+                     badgeStatus="warning"
+                     badgePosition="bottom right"
+                     [picture]="ctrl.style">
+
+            </nb-user>
+          </div>
+        </nb-list-item>
+      </nb-list>
+    </nb-card>
+  </nb-card-body>
+</nb-card>

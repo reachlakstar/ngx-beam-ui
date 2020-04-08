@@ -5,7 +5,7 @@ import { MENU_ITEMS } from '../../menu';
   selector: 'yeti-dashboard-layout',
   templateUrl: './dashboard-layout.component.html',
   styleUrls: ['./dashboard-layout.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardLayoutComponent implements OnInit {
   menu = MENU_ITEMS;

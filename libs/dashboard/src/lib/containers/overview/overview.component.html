@@ -1,6 +1,49 @@
-<nb-card>
+<nb-card xmlns:svg="">
   <nb-card-body>
-    A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases. Originally, nebula was a name
-    for any diffuse astronomical object, including galaxies beyond the Milky Way.
+    <div class="grid">
+      <svg xmlns="http://www.w3.org/2000/svg" class="svg" (click)="createWorkflow($event)">
+        <defs>
+          <pattern id="storage" x="0%" y="0%" height="100%" width="100%"
+                   viewBox="0 0 512 512">
+            <image xlink:href="/assets/action/storage.svg" x="0%" y="0%" width="512" height="512"/>
+          </pattern>
+          <pattern id="bigtable" x="0%" y="0%" height="100%" width="100%"
+                   viewBox="0 0 512 512">
+            <image xlink:href="/assets/action/bigtable.svg" x="0%" y="0%" width="512" height="512"/>
+          </pattern>
+        </defs>
+        <svg:g *ngFor="let action of beamWFActions">
+          <svg:circle r="40"
+                      [attr.id]="action.wfStepId"
+                      [attr.cx]="action.position.x"
+                      [attr.cy]="action.position.y"
+                      (click)="onSelect(action)"
+                      (dblclick)="openConfigModal(action)"
+                      (mousedown)="startDrag($event, action)"
+                      (mousemove)="onDrag($event, action)"
+                      (mouseleave)="endDrag()"
+                      (mouseup)="endDrag()"
+                      (mouseover)="drawLinks(action)"
+                      [attr.class]="doesItemNeedTobeHighlighted(action, 'circle')">
+          </svg:circle>
+          <svg:text [attr.x]="(action.position.x)"
+                    [attr.y]="(action.position.y + 70)"
+                    class="action-text"
+                    alignment-baseline="middle">{{action.name}}
+          </svg:text>
+          <svg:polygon *ngFor="let points of action.arrowPoints"
+                       [attr.points]="points"
+                       (click)="onSelectLink(action)"
+                       [attr.class]="doesItemNeedTobeHighlighted(action, '')">
+          </svg:polygon>
+          <svg:g *ngFor="let edge of action.edges">
+            <svg:polyline [attr.points]="edge.linePoints" class="linkEdge linkEdge-select">
+            </svg:polyline>
+            <svg:polygon [attr.points]="edge.arrowPoints" class="linkEdgeArrow"></svg:polygon>
+          </svg:g>
+
+        </svg:g>
+      </svg>
+    </div>
   </nb-card-body>
 </nb-card>

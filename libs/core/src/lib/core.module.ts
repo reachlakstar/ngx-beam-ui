@@ -50,7 +50,7 @@ export function noop() {
 @NgModule({
   imports: [
     NbEvaIconsModule,
-    NbThemeModule.forRoot({ name: 'dark' }),
+    NbThemeModule.forRoot({ name: 'corporate' }),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
