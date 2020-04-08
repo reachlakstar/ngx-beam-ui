@@ -25,7 +25,7 @@ import { AppComponent } from './app.component';
         },
         {
           path: 'dashboard',
-          canActivate: [AuthGuard],
+          //canActivate: [AuthGuard],
           // prettier-ignore
           loadChildren: () => import('@yeti/dashboard').then(module => module.DashboardModule),
           data: { preload: false },
