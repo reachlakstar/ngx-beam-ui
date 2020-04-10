@@ -12,7 +12,8 @@
             <image xlink:href="/assets/images/action/bigtable.svg" x="0%" y="0%" width="512" height="512"/>
           </pattern>
         </defs>
-        <svg:g *ngFor="let action of beamWFActions">
+        <svg:g *ngFor="let action of beamWFActions"
+               (mousedown)="drawLinks(action)">
           <svg:circle r="40"
                       [attr.id]="action.wfStepId"
                       [attr.cx]="action.position.x"
@@ -23,7 +24,6 @@
                       (mousemove)="onDrag($event, action)"
                       (mouseleave)="endDrag()"
                       (mouseup)="endDrag()"
-                      (mouseover)="drawLinks(action)"
                       [attr.class]="doesItemNeedTobeHighlighted(action, 'circle')">
           </svg:circle>
           <svg:text [attr.x]="(action.position.x)"

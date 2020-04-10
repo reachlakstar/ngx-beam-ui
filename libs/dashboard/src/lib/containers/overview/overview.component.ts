@@ -59,7 +59,6 @@ export class OverviewComponent implements OnInit {
       this.deselectAllWorkflowItems();
       this.beamWFActions.push(beamObject);
       this.workflowItem = null;
-      console.log(beamObject)
     } else {
       if (!this.selectedAction) {
         this.deselectAllWorkflowItems()
@@ -149,16 +148,32 @@ export class OverviewComponent implements OnInit {
       action.position.x = event.layerX - this.newPosX;
       action.position.y = event.layerY - this.newPosY;
       action.arrowPoints = this.generateArrowPoints(action.position.x, action.position.y);
-      this.drawLinks(action);
+      this.updateLinks();
     }
   }
 
   endDrag() {
     this.initatedDrag = false;
+    this.updateLinks();
   }
 
   onSelectLink(action: BeamMData) {
     this.workflowService.pushSourceEdge(action);
+    this.selectedAction = true;
+  }
+
+  updateLinks() {
+      this.beamWFActions.forEach(action =>{
+        let edges = action.edges;
+        edges?.forEach( edge => {
+          this.beamWFActions.forEach(dest => {
+            if (dest.wfStepId == edge.wfStepId) {
+              this.onSelectLink(action);
+              this.drawLinks(dest);
+            }
+          });
+        });
+      });
   }
 
   drawLinks(action: BeamMData) {
