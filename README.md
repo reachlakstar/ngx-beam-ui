@@ -11,10 +11,7 @@
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/xmlking/yeti.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/xmlking/yeti/context:javascript)
 
 ## Getting Super Powers
-
-Live [Demo](https://ngx-starter-kit.firebaseapp.com/)
-
-Docs on [GitBook](https://xmlking.gitbook.io/yeti/v/develop/)
+ 
 
 API Docs [CompoDoc](https://xmlking.github.io/yeti/)
 
